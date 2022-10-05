@@ -26,22 +26,28 @@ class LoginController extends Controller
         $passwordRequest = $request->password;
 
         if (empty($emailRequest)) {
-            return false;
+            $response = false;
+            return json_encode($response);
         } else {
-            if($emailRequest === $user->email){
-                return true;
+            if ($emailRequest === $user->email) {
+                $response = true;
+                return json_encode($response);
             } else {
-                return false;
+                $response = false;
+                return json_encode($response);
             }
         }
 
         if (empty($passwordRequest)) {
-            return false;
+            $response = false;
+            return json_encode($response);
         } else {
-            if($passwordRequest === $user->password){
-                return true;
+            if ($passwordRequest === $user->password) {
+                $response = true;
+                return json_encode($response);
             } else {
-                return false;
+                $response = false;
+                return json_encode($response);
             }
         }
     }
