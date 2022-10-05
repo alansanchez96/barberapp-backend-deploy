@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\AdminController;
-use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +19,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::controller(LoginController::class)
+Route::controller(AuthController::class)
     ->group(
         function () {
-            Route::get('/users', 'index');
-            Route::post('/user', 'store');
+            Route::get('/users', 'users');
+            Route::post('/user/login', 'login');
         }
     );
