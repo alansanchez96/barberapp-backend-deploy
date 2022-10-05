@@ -21,7 +21,29 @@ class LoginController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $emailRequest = $request->email;
+        $passwordRequest = $request->password;
+
+        if (empty($emailRequest)) {
+            return false;
+        } else {
+            if($emailRequest === $user->email){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if (empty($passwordRequest)) {
+            return false;
+        } else {
+            if($passwordRequest === $user->password){
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 
     public function show($id)

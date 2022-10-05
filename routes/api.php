@@ -24,5 +24,6 @@ Route::controller(LoginController::class)
     ->group(
         function () {
             Route::get('/users', 'index');
+            Route::post('/user', 'store');
         }
     );
