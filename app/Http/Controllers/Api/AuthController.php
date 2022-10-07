@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\AuthRequest;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
@@ -15,9 +16,11 @@ class AuthController extends Controller
         return $users;
     }
 
-    public function login(Request $request)
+    public function login(AuthRequest $request)
     {
-        if (!Auth::attempt($request->only('email', 'password'))) {
+        $credenciales = $request->validated();
+
+        if (!Auth::attempt($credenciales)) {
             return response()->json([
                 false
             ]);
