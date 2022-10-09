@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\api;
+namespace App\Http\Controllers\Api\Auth;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\AuthRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Auth\AuthRequest;
 
 class AuthController extends Controller
 {
     public function users()
     {
-        $users = User::all();
+        $users = User::where('email', 'admin@admin.com');
         return $users;
     }
 
@@ -31,5 +31,11 @@ class AuthController extends Controller
         return response()->json([
             true
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
     }
 }

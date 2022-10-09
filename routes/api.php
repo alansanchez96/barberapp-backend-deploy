@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +24,6 @@ Route::controller(AuthController::class)
         function () {
             Route::get('/users', 'users');
             Route::post('/user/login', 'login');
+            Route::post('/user/logout', 'logout');
         }
     );
