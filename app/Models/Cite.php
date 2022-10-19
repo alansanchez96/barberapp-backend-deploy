@@ -19,4 +19,15 @@ class Cite extends Model
     {
         return $this->belongsTo(Barber::class);
     }
+
+    /**
+     * Muchas Citas le pertenecen a Muchos Servicios
+     * Relacion Muchos a Muchos to Service::class
+     *
+     * @return void
+     */
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 }
