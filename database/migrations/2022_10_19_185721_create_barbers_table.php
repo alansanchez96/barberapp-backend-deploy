@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('barbers', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 60);
+            $table->string('surname', 60);
+            $table->enum('status', [0, 1])->default(1);
             $table->timestamps();
         });
     }
