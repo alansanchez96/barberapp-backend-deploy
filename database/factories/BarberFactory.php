@@ -17,8 +17,8 @@ class BarberFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'surname' => $this->faker->name(),
+            'name' => $this->faker->firstName('female'),
+            'surname' => $this->faker->lastName(),
             'status' => fake()->randomElement(['inactive', 'active'])
         ];
     }
