@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 60);
             $table->string('surname', 60);
-            $table->string('phone_number', 10);
+            $table->string('phone_number', 20);
             $table->date('date');
             $table->time('time');
             $table->unsignedBigInteger('barber_id');

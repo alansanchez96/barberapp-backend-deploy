@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Barber;
+use App\Models\Cite;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -26,5 +27,6 @@ class DatabaseSeeder extends Seeder
         ]);
         Barber::factory(5)->create();
         Service::factory(10)->create();
+        $this->call(CiteSeeder::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Barber;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,12 @@ class CiteFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->firstNameMale(),
+            'surname' => fake()->lastName(),
+            'phone_number' => fake()->phoneNumber(),
+            'date' => fake()->date(),
+            'time' => fake()->time(),
+            'barber_id' => Barber::all()->random()->id
         ];
     }
 }
