@@ -7,18 +7,19 @@ use App\Models\Image;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Barber extends Model
+class Service extends Model
 {
     use HasFactory;
 
     /**
-     * Relacion Uno a Uno to Cite::class
+     * Muchos Servicios le pertenecen a muchas Citas
+     * Relacion Muchos a Muchos Cite::class
      *
      * @return void
      */
-    public function cite()
+    public function cites()
     {
-        return $this->hasOne(Cite::class);
+        return $this->belongsToMany(Cite::class);
     }
 
     /**

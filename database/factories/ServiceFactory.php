@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Barber>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Service>
  */
-class BarberFactory extends Factory
+class ServiceFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class BarberFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->firstName('female'),
-            'surname' => $this->faker->lastName(),
+            'description' => fake()->sentence(5),
+            'price' => fake()->randomFloat(2, 2, 600),
             'status' => fake()->randomElement(['inactive', 'active'])
         ];
     }

@@ -13,11 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('barbers', function (Blueprint $table) {
+        Schema::create('cites', function (Blueprint $table) {
             $table->id();
             $table->string('name', 60);
             $table->string('surname', 60);
-            $table->enum('status', ['inactive', 'active'])->default('active');
+            $table->string('phone_number', 20);
+            $table->date('date');
+            $table->time('time');
+            $table->unsignedBigInteger('barber_id');
+            $table->foreign('barber_id')
+                ->references('id')
+                ->on('barbers')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('barbers');
+        Schema::dropIfExists('cites');
     }
 };
