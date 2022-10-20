@@ -19,7 +19,6 @@ class CiteSeeder extends Seeder
         Cite::factory(5)->create()
             ->each(function ($cite) {
                 $cite->services()->sync(Service::all()->random()->id);
-                
             });
     }
 }

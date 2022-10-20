@@ -4,12 +4,13 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\Barber;
 use App\Models\Cite;
-use App\Models\Service;
 use App\Models\User;
+use App\Models\Barber;
+use App\Models\Service;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,13 +21,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Storage::deleteDirectory('barbers');
+        Storage::makeDirectory('barbers');
+        Storage::deleteDirectory('services');
+        Storage::makeDirectory('services');
+
         User::factory()->create([
             'name' => 'Administrador',
             'email' => 'admin@admin.com',
             'password' => Hash::make('admin')
         ]);
-        Barber::factory(5)->create();
-        Service::factory(10)->create();
+
+        $this->call(BarberSeeder::class);
+        $this->call(ServiceSeeder::class);
         $this->call(CiteSeeder::class);
     }
 }
