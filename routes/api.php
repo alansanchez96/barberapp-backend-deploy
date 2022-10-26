@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\Barber\BarberController;
 use App\Http\Controllers\Api\Cite\CiteController;
 
 /*
@@ -31,5 +32,11 @@ Route::controller(AuthController::class)->group(
 Route::controller(CiteController::class)->group(
     function () {
         Route::get('/cites', 'getCites');
+    }
+);
+
+Route::controller(BarberController::class)->group(
+    function () {
+        Route::get('/barbers', 'getBarbers');
     }
 );
