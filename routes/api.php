@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\Cite\CiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +20,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::controller(AuthController::class)
-    ->group(
-        function () {
-            Route::get('/users', 'users');
-            Route::post('/user/login', 'login');
-            Route::post('/user/logout', 'logout');
-        }
-    );
+Route::controller(AuthController::class)->group(
+    function () {
+        Route::get('/users', 'users');
+        Route::post('/user/login', 'login');
+        Route::post('/user/logout', 'logout');
+    }
+);
+
+Route::controller(CiteController::class)->group(
+    function () {
+        Route::get('/cites', 'getCites');
+    }
+);
