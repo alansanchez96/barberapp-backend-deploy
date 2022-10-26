@@ -3,9 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\AuthController;
-use App\Http\Controllers\Api\Barber\BarberController;
 use App\Http\Controllers\Api\Cite\CiteController;
 use App\Http\Controllers\Api\Image\ImageController;
+use App\Http\Controllers\Api\Barber\BarberController;
 use App\Http\Controllers\Api\Service\ServiceController;
 
 /*

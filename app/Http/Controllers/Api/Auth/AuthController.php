@@ -12,8 +12,7 @@ class AuthController extends Controller
 {
     public function users()
     {
-        $users = User::where('email', 'admin@admin.com');
-        return $users;
+        return User::all();
     }
 
     public function login(AuthRequest $request)
