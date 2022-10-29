@@ -12,4 +12,14 @@ class CiteController extends Controller
     {
         return Cite::all();
     }
+
+    public function getDate()
+    {
+        return Cite::select('date')->get();
+    }
+
+    public function getTime()
+    {
+        return Cite::select('time')->get();
+    }
 }

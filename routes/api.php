@@ -34,6 +34,8 @@ Route::controller(AuthController::class)->group(
 Route::controller(CiteController::class)->group(
     function () {
         Route::get('/cites', 'getCites');
+        Route::get('/cites/date', 'getDate');
+        Route::get('/cites/time', 'getTime');
     }
 );
 
